@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./starter-code/assets/images/favicon-32x32.png">
   <title>Password generator app</title>
   <link rel="stylesheet" href="./style.css">
   <script src="./script.js" defer></script>
@@ -13,7 +14,7 @@
       <div class="pwd_gen_title"><p>Password Generator</p></div>
 
       <div class="pwd_gen_result">
-        <div class="res"></div>
+        <div class="res res_default_display">Your password will display here</div>
         <button type="button">
           <img class="copy_btn" alt="Copy password" src="./starter-code/assets/images/icon-copy.svg">
         </button>
@@ -26,7 +27,7 @@
 
             <div class="row">
               <label for="pwd_len_control">Character Length</label>
-              <span class="length_value" aria-live="polite">12</span>
+              <span class="length_value" aria-live="polite">10</span>
             </div>
             <input
               type="range"
