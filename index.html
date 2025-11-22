@@ -1,21 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./starter-code/assets/images/favicon-32x32.png">
   <title>Password generator app</title>
   <link rel="stylesheet" href="./style.css">
-  <script src="./script.js"></script>
+  <script src="./script.js" defer></script>
 </head>
 <body>
   <main>
     <div class="card_display">
       <div class="pwd_gen_title"><p>Password Generator</p></div>
+
       <div class="pwd_gen_result">
         <div class="res"></div>
-        <div><button><img class="copy_btn" alt="btn" src="./starter-code/assets/images/icon-copy.svg"></button></div>
+        <button type="button">
+          <img class="copy_btn" alt="Copy password" src="./starter-code/assets/images/icon-copy.svg">
+        </button>
       </div>
+
       <div class="control_card">
         <form>
           <fieldset class="control_panel">
@@ -63,21 +66,5 @@
       </div>
     </div>
   </main>
-
-  Password Generator
-
-  P4$5W0rD!
-
-  Character Length
-
-  Include Uppercase Letters
-  Include Lowercase Letters
-  Include Numbers
-  Include Symbols
-
-  Strength
-
-  Generate
-
 </body>
 </html>
