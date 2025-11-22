@@ -4,6 +4,7 @@ const checkboxs = document.querySelectorAll('.checkbox input[type="checkbox"]');
 const form_btn = document.querySelector('.generate_btn');
     
 const strength_value_boxes = document.querySelectorAll('.strength_value_box');
+const strength_value = document.querySelector('.strength_value span');
 const pwd_len = document.querySelector('.length_value');
 const pwd_res = document.querySelector('.res');
 
@@ -82,15 +83,19 @@ function show_strength(pwd){
     const strength = compute_strength(pwd);
     if (strength <= 0.25){
         state = 1;
+        strength_value.textContent = 'vulnerable';
     }
     else if (strength <= 0.5){
         state = 2;
+        strength_value.textContent = 'weak';
     }
     else if (strength <= 0.75){
         state = 3;
+        strength_value.textContent = 'medium'
     }
     else{
         state = 4;
+        strength_value.textContent = 'robust';
     }
     if (state === 0) throw new Error('state error');
     let state_str = 'state' + state.toString();
