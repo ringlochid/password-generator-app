@@ -60,6 +60,10 @@ function generate_pwd(){
     return pwd;
 }
 
+function computing_entropy(){
+    
+}
+
 form_btn.addEventListener('click', () => {
     let pwd = '';
     try{
@@ -71,4 +75,17 @@ form_btn.addEventListener('click', () => {
     }
     pwd_res.classList.toggle('res_default_display', false);
     pwd_res.textContent = pwd;
+});
+
+range_form.addEventListener('change', () => {
+    pwd_len.textContent = range_form.value;
+});
+
+copy_btn.addEventListener('click', () => {
+    if (!pwd_res.textContent || pwd_res.textContent === 'Your password will display here'){
+        alert('generate a password first!');
+        return;
+    }
+    navigator.clipboard.writeText(pwd_res.textContent);
+    alert('copyed to clipboard');
 });
