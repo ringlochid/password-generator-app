@@ -60,8 +60,44 @@ function generate_pwd(){
     return pwd;
 }
 
-function computing_entropy(){
-    
+function computing_entropy(pwd){
+    const set = new Set(pwd);
+    const alp_diversity = set.size;
+    return pwd.length * Math.log2(alp_diversity);
+}
+
+function compute_strength(pwd){
+    const max_len = Number(range_form.value.trim());
+    const MAX_ALPHA_SIZE = digits.length + lowercase_letter.length + uppercase_letter.length + special_symbols.length;
+    const max_entropy = max_len * Math.log2(MAX_ALPHA_SIZE);
+    const entropy = computing_entropy(pwd);
+    return entropy/max_entropy;
+}
+
+function show_strength(pwd){
+    for (b of strength_value_boxes){
+        b.classList.remove('state1', 'state2', 'state3', 'state4');
+    }
+    let state = 0;
+    const strength = compute_strength(pwd);
+    if (strength <= 0.25){
+        state = 1;
+    }
+    else if (strength <= 0.5){
+        state = 2;
+    }
+    else if (strength <= 0.75){
+        state = 3;
+    }
+    else{
+        state = 4;
+    }
+    if (state === 0) throw new Error('state error');
+    let state_str = 'state' + state.toString();
+    for (let i = 0; i < state; i ++){
+        strength_value_boxes[i].classList.toggle(state_str, true);
+    }
+    return;
 }
 
 form_btn.addEventListener('click', () => {
@@ -71,10 +107,19 @@ form_btn.addEventListener('click', () => {
     }
     catch(e){
         console.log(e);
+        alert(e);
         return;
     }
     pwd_res.classList.toggle('res_default_display', false);
     pwd_res.textContent = pwd;
+    try{
+        show_strength(pwd);
+    }
+    catch(e){
+        console.log(e);
+        alert(e);
+        return;
+    }
 });
 
 range_form.addEventListener('change', () => {
