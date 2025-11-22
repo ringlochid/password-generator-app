@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./starter-code/assets/images/favicon-32x32.png">
+  <title>Password generator app</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js"></script>
+</head>
+<body>
+  <main>
+    <div class="card_display">
+      <div class="pwd_gen_title"><p>Password Generator</p></div>
+      <div class="pwd_gen_result">
+        <div class="res"></div>
+        <div><button><img class="copy_btn" alt="btn" src="./starter-code/assets/images/icon-copy.svg"></button></div>
+      </div>
+      <div class="control_card">
+        <form>
+          <fieldset class="control_panel">
+            <legend>Settings</legend>
+
+            <div class="row">
+              <label for="pwd_len_control">Character Length</label>
+              <span class="length_value" aria-live="polite">12</span>
+            </div>
+            <input
+              type="range"
+              name="pwd_len"
+              id="pwd_len_control"
+              class="pwd_control_panel_form_range_len"
+              min="4"
+              max="25"
+              value="10"
+            >
+
+            <label class="checkbox">
+              <input type="checkbox" id="opt_upper" checked>
+              <span>Include Uppercase Letters</span>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" id="opt_lower" checked>
+              <span>Include Lowercase Letters</span>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" id="opt_numbers" checked>
+              <span>Include Numbers</span>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" id="opt_symbols">
+              <span>Include Symbols</span>
+            </label>
+
+            <div class="row strength_row">
+              <span>Strength</span>
+              <span class="strength_value">Medium</span>
+            </div>
+
+            <button type="button" class="generate_btn">Generate</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  Password Generator
+
+  P4$5W0rD!
+
+  Character Length
+
+  Include Uppercase Letters
+  Include Lowercase Letters
+  Include Numbers
+  Include Symbols
+
+  Strength
+
+  Generate
+
+</body>
+</html>

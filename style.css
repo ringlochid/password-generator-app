@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #0b0b0f;
+  --card: #14141c;
+  --panel: #1d1d28;
+  --text: #e8e9ee;
+  --muted: #8d92a3;
+  --accent: #7be3a8;
+  --accent-strong: #42c17a;
+  --border: #262834;
+}
+
+body{
+    height: 100dvh;
+    display: grid;
+    margin: 0px;
+    place-items: center;
+    background-color: black;
+}
+
+main .pwd_gen_title{
+    color: rgba(128, 128, 128, 0.781);
+}
+
+main .pwd_gen_result{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding: 0.9rem 1rem;
+    background: var(--panel, #1d1d28);
+    border: 1px solid var(--border, #262834);
+}
+
+main .pwd_gen_result .res{
+    margin: 0px;
+    flex: 1;
+    font-size: large;
+    color: white;
+}
+
+main .pwd_gen_result button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.65rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+main .pwd_gen_result .copy_btn{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+main .control_card{
+    width: 100%;
+    margin: 0px;
+}
+
+.control_panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 1.1rem;
+    background: var(--panel, #1d1d28);
+    border: 1px solid var(--border, #262834);
+    color: var(--text, #e8e9ee);
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+}
+
+.control_panel legend {
+    display: none;
+}
