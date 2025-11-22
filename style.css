@@ -83,11 +83,38 @@ body {
 }
 
 .control_panel .strength_row{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem .75rem;
     color: var(--muted);
+    background-color: rgba(0, 0, 0, 0.226);
 }
 
 .control_panel .strength_value{
+    display: flex;
+    gap: .4rem;
     color: white;
+}
+
+.control_panel .strength_value_box{
+    border: 1px solid white;
+    padding: 0rem .2rem;
+}
+
+.control_panel .strength_value_box.state1{
+    background-color: #3cff00;
+}
+
+.control_panel .strength_value_box.state2{
+    background-color: #fff200;
+}
+
+.control_panel .strength_value_box.state3{
+    background-color: #ff9900;
+}
+
+.control_panel .strength_value_box.state4{
+    background-color: #ff0000;
 }
 
 .control_panel legend { display: none; }
