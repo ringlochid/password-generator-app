@@ -37,7 +37,7 @@ function generate_pwd(){
     let alphabet = '';
     const checked = [];
     for(let i = 0; i < checkboxs.length; i++){
-        if (checkboxs[i].ischecked){
+        if (checkboxs[i].checked){
             checked.push(true);
         }
         else{checked.push(false);}
