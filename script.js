@@ -1,6 +1,6 @@
 const copy_btn = document.getElementById('copy_btn');
 const range_form = document.getElementById('pwd_len_control');
-const checkboxs = document.querySelectorAll('.checkbox');
+const checkboxs = document.querySelectorAll('.checkbox input[type="checkbox"]');
 const form_btn = document.querySelector('.generate_btn');
     
 const strength_value_boxes = document.querySelectorAll('.strength_value_box');
@@ -23,7 +23,7 @@ function generate_rn(pwd_length, mod){
     const res = [];
     const bar = 65536 - 65536%mod;
     while (res.length < pwd_length){
-        const tmp = Uint16Array(1);
+        const tmp = new Uint16Array(1);
         globalThis.crypto.getRandomValues(tmp);
         if (tmp[0] >= bar){
             continue;
@@ -34,7 +34,7 @@ function generate_rn(pwd_length, mod){
 }
 
 function generate_pwd(){
-    const alphabet = '';
+    let alphabet = '';
     const checked = [];
     for(let i = 0; i < checkboxs.length; i++){
         if (checkboxs[i].ischecked){
@@ -48,10 +48,27 @@ function generate_pwd(){
             alphabet += alpha_dict[i.toString()];
         }
     }
-    
+    const pwd_length = range_form.value.trim();
+    const numeric_pwd_len = Number(pwd_length);
+    const mod = alphabet.length;
 
+    const random_idx = generate_rn(numeric_pwd_len, mod);
+    let pwd = '';
+    for (let idx of random_idx){
+        pwd += alphabet[idx];
+    }
+    return pwd;
 }
 
-function main(){
-
-}
+form_btn.addEventListener('click', () => {
+    let pwd = '';
+    try{
+        pwd = generate_pwd();
+    }
+    catch(e){
+        console.log(e);
+        return;
+    }
+    pwd_res.classList.toggle('res_default_display', false);
+    pwd_res.textContent = pwd;
+});

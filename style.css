@@ -104,10 +104,11 @@ main { width: min(520px, 94vw); }
 
 .control_panel input[type="range"] {
     width: 100%;
-    appearance: none;
+    appearance: auto;
     height: 8px;
     background: var(--panel-dark);
     border: 1px solid var(--border);
+    accent-color: var(--accent);
     cursor: pointer;
 }
 .control_panel input[type="range"]::-webkit-slider-thumb {
